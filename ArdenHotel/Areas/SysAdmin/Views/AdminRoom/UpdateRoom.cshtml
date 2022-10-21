@@ -1,0 +1,63 @@
+﻿@model ArdenHotel.Entities.Room
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "UpdateRoom";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>UpdateRoom</h1>
+
+<h4>Room</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="~/SysAdmin/AdminRoom/UpdateRoom" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" name="RoomId" asp-for="RoomID" class="form-control" />
+            <input type="hidden" name="CreatedDateUtc" asp-for="CreatedDateUtc" class="form-control" />
+            <div class="form-group">
+                <label asp-for="RoomName" class="control-label">Oda Adı</label>
+                <input asp-for="RoomName" name="RoomName" class="form-control" />
+                <span asp-validation-for="RoomName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Açıklama</label>
+                <input asp-for="Description" name="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Fiyat</label>
+                <input asp-for="Price" name="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Capacity" class="control-label">Kapasite</label>
+                <input asp-for="Capacity" name="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label">Tip</label>
+                <input asp-for="Type" name="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Resim</label>
+                <input type="file" multiple name="files" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label">Kategori</label>
+                @Html.DropDownListFor(x => x.CategoryID, new SelectList((System.Collections.IEnumerable)ViewData["items"], "Value", "Text"), new { @class = "form-control" })
+                <input type="hidden" name="CategoryID" asp-for="CategoryID" />
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomCount" class="control-label">Adet</label>
+                <input asp-for="RoomCount" name="RoomCount" class="form-control" />
+                <span asp-validation-for="RoomCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

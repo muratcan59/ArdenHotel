@@ -1,0 +1,147 @@
+﻿@model ArdenHotel.Models.RoomCommentViewModel
+@{
+    ViewData["Title"] = "RoomDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var urls = Model.Room.Media != null ? @Model.Room.Media.Url.Split(",") : new string[0];
+    var count = Model != null ? Model.Comments.Count : 0;
+}
+
+<!--================Breadcrumb Area =================-->
+<section class="breadcrumb_area blog_banner_two">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+        <div class="page-cover text-center">
+            <h2 class="page-cover-tittle f_48">@(Model.Room.RoomName)</h2>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">@(Model.Room.Category.CategoryName)</a></li>
+                <li class="active">@Model.Room.RoomName</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!--================Breadcrumb Area =================-->
+<!--================Blog Area =================-->
+<section class="blog_area single-post-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 posts-list">
+                <div class="single-post row">
+                    <div class="col-lg-12">
+                        <div class="feature-img">
+                            <div id="carouselExampleIndicator" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    @foreach (var url in urls)
+                                    {
+                                        var data = urls.FirstOrDefault();
+                                        var index = Array.FindIndex(urls, x => x == url);
+
+                                        <li data-target="#carouselExampleIndicator" data-slide-to="@index" class="@(data == url ? "active" : "")"></li>
+                                    }
+                                </ol>
+                                <div class="carousel-inner">
+                                    @foreach (var url in urls)
+                                    {
+                                        var data = urls.FirstOrDefault();
+
+                                        <div class="carousel-item @(data == url ? "active" : "")">
+                                            <img class="d-block w-100" style="object-fit:contain;max-height:635px;" src="~/Files/@url" alt="">
+                                        </div>
+                                    }
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicator" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicator" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3  col-md-3">
+                        <div class="blog_info text-right">
+                          
+                            <ul class="blog_meta list_style">
+                                <li><a href="#">@Model.Room.CreatedDateUtc.AddHours(3).ToString("dd.MM.yyyy")<i class="lnr lnr-calendar-full"></i></a></li>
+                                <li><a href="#">@count Yorumlar<i class="lnr lnr-bubble"></i></a></li>
+                            </ul>
+                          
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9 blog_details">
+                        <h2>@Model.Room.RoomName</h2>
+
+                        @*<p class="excert">
+            @Model.Room.Description
+        </p>*@
+
+                        <div>
+                            <p class="badge badge-info" style="font-size:11px;">Sıcak Su</p>
+                            <p class="badge badge-info" style="font-size:11px;">Klima</p>
+                            <p class="badge badge-info" style="font-size:11px;">Tv</p>
+                            <p class="badge badge-info" style="font-size:11px;">Telefon</p>
+                            <p class="badge badge-info" style="font-size:11px;">Deniz Manzarası</p>
+                            <p class="badge badge-info" style="font-size:11px;">Ücretsiz Wi fi</p>
+                            <p class="badge badge-info" style="font-size:11px;">24 Saat Resepsiyon</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="comments-area">
+                    <h4>@count Yorumlar</h4>
+                    @foreach (var item in Model.Comments)
+                    {
+                        <div class="comment-list">
+                            <div class="single-comment justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="thumb">
+                                        <img height="50" src="~/image/comment-icon.png" alt="">
+                                    </div>
+                                    <div class="desc">
+                                        <h5><a href="#">@item.Name</a></h5>
+                                        <p class="date">@item.CreatedDateUtc?.AddHours(3)</p>
+                                        <p class="comment">
+                                            @item.Commentary
+                                        </p>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    }
+
+                  
+                </div>
+                <div class="comment-form">
+                    <h4>Yorum yaz</h4>
+                    <form action="~/Comment/InsertComment" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" value="@Model.Room.RoomID" asp-for="Comment.RoomID" name="RoomID" />
+                        <div class="form-group form-inline">
+                            <div class="form-group col-lg-6 col-md-6 name">
+                                <input type="text" class="form-control" id="name" name="Name" asp-for="Comment.Name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'" required>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 email">
+                                <input type="email" class="form-control" name="Email" asp-for="Comment.Email" id="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control mb-10" rows="5" name="Commentary" asp-for="Comment.Commentary" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                        </div>
+                        <input type="submit" value="Post Comment" class="primary-btn button_hover" />
+                    </form>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</section>
+<!--================Blog Area =================-->

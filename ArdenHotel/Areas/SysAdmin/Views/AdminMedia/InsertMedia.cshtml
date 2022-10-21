@@ -1,0 +1,62 @@
+﻿@model ArdenHotel.Entities.Media
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "InsertMedia";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>InsertMedia</h1>
+
+<h4>Media</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="~/SysAdmin/AdminMedia/InsertMedia" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Resim</label>
+                <input type="file" multiple name="files" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Başlık</label>
+                <input asp-for="Title" name="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsBanner" name="IsBanner" /> Banner'da Gösterilsin
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsSectionOne" name="IsSectionOne" /> Anasayfa - 1
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsSectionTwo" name="IsSectionTwo" /> Anasayfa - 2
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsSectionThree" name="IsSectionThree" /> Anasayfa - 3
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsSectionFour" name="IsSectionFour" /> Anasayfa - 4
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsSectionFive" name="IsSectionFive" /> Anasayfa - 5
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

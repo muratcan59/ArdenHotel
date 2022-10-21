@@ -1,0 +1,37 @@
+﻿@model List<ArdenHotel.Entities.Category>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kategori Listesi</h4>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Kategori Adı</th>
+                            <th>Açıklama</th>
+                            <th>Aktif Mi?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td hidden>@item.CategoryID</td>
+                                <td>@item.CategoryName</td>
+                                <td>@item.CategoryDescription</td>
+                                <td>@item.IsActive</td>
+                                <td><a class="btn btn-warning" href="~/update-category?id=@item.CategoryID">Düzenle</a></td>
+                                <td><a class="btn btn-danger" href="~/delete-category?id=@item.CategoryID">Sil</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

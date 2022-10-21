@@ -1,0 +1,83 @@
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.Extensions.Localization;
+
+@inject IStringLocalizer<SharedResource> localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.TwoLetterISOLanguageName })
+        .ToList();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+
+    const string en = "en";
+
+}
+
+<form id="cultureForm" style="margin: 16% 0% 0% -19%; " asp-controller="Home"
+      asp-action="SetLanguage"
+      asp-route-returnUrl="@returnUrl"
+      method="post" class="form-horizontal"
+      >
+    <div class="container" style=" margin: 14% 0% 0% -2%;">
+        <select class="data-width:fit" style=" border: none; position: relative;" name="culture" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="@cultureItems" onchange="this.form.submit()">
+        </select>
+        @if (requestCulture.RequestCulture.UICulture.TwoLetterISOLanguageName == @en)
+        {
+            <span style=" margin-top: 13%;" class="flag-icon flag-icon-us"></span>
+
+        }
+        else
+        {
+            <span style=" margin-top: 13%;" class="flag-icon flag-icon-tr"></span>
+        }
+    </div>
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        jQuery('#partialLanguage').find('.nice-select').css("border", "none");
+        jQuery('#partialLanguage').find('.nice-select').find('.list').css("margin", "0% 0% 0% 29%");
+
+      
+
+    });
+    //function SetLanguage(selectedValue) {
+    //    var culture = "/?culture=" + selectedValue;
+    //    document.getElementById("cultureForm").action = culture;
+    //    document.getElementById("cultureForm").submit();
+    //}
+</script>
+<style type="text/css">
+    @@media(max-width: 991px) {
+
+        #partialLanguage {
+            margin: -3% 84% 18% -1%;
+            border:none;
+            
+        }
+    }
+    @@media(max-width: 768px) {
+
+        #partialLanguage {
+            margin: -3% 82% 22% -1%;
+            border: none;
+        }
+    }
+    @@media(max-width: 575px) {
+
+        #partialLanguage {
+            margin: -3% 82% 22% 1%;
+        }
+    }
+    @@media(min-width: 360px) and (max-width:767px) {
+
+        #partialLanguage {
+            margin: -3% 76% 22% 1%
+        }
+    }
+   
+</style>

@@ -1,0 +1,29 @@
+﻿@model List<ExchangeRate>
+@using System.Globalization;
+@using System.Threading;
+@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer;
+@{
+
+}
+
+<style>
+    @@media (max-width: 992px) {
+        .exchange-rate {
+            margin: -5% 3% 2% 0%;
+        }
+    }
+</style>
+
+<div class="exchange-rate" style=" font-family: cursive; font-size: x-small; margin-top: 12px;">
+    <div>
+        @foreach (var item in Model)
+        {
+            if (item.Code == "EUR" || item.Code == "USD")
+            {
+                <p style="margin-top:0;margin-bottom:1rem;">@item.Code - <b>@item.Buying.Value.ToString("#.##") TL</b></p>
+            }
+        }
+    </div>
+</div>
+

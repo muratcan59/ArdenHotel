@@ -1,0 +1,80 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<section class="contact_area section_gap">
+    <div class="container">
+        <div id="mapBox" class="mapBox" style="overflow-y:hidden;height:500px;">
+            <iframe id="gMap" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d792.9102842916468!2d27.2748553!3d37.3510038!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be873d08565971%3A0xe7b5418e449b1fe4!2sDidim%20Arden%20Otel!5e0!3m2!1str!2str!4v1651674190741!5m2!1str!2str" width="1140" height="490" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="contact_info">
+                    <div class="info_item">
+                        <i class="lnr lnr-home"></i>
+                        <h6>Aydın, Didim</h6>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-phone-handset"></i>
+                        <h6><a href="#">+90 536 873 18 25</a></h6>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <form class="row contact_form" action="/Contact/Send" method="post" id="contactForm" >
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" required id="name" name="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" required id="email" name="email" placeholder="Enter email address">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea class="form-control" required name="message" id="message" rows="1" placeholder="Enter Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button type="submit" value="submit" class="btn theme_btn button_hover">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Contact Area =================-->
+<!--================ start footer Area  =================-->
+<!--================ End footer Area  =================-->
+<!--================Contact Success and Error message Area =================-->
+<div id="success" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Thank you</h2>
+                <p>Your message is successfully sent...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals error -->
+
+<div id="error" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Sorry !</h2>
+                <p> Something went wrong </p>
+            </div>
+        </div>
+    </div>
+</div>

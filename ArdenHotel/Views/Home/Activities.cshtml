@@ -1,0 +1,175 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["Title"] = "Activities";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--================Breadcrumb Area =================-->
+<section class="breadcrumb_area">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+        <div class="page-cover text-center">
+            <h2 class="page-cover-tittle">@SharedLocalizer["Aktiviteler"]</h2>
+            <ol class="breadcrumb">
+                <li><a href="~/">@SharedLocalizer["Anasayfa"]</a></li>
+                <li class="active">@SharedLocalizer["Aktiviteler"]</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!--================Breadcrumb Area =================-->
+<section id="team" class="pb-5">
+    <div class="container">
+        <h3 style="color: #f8b600;" class="section-title h3">@SharedLocalizer["Aktiviteler"]</h3>
+        <div class="row">
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip">
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class="img-fluid" src="/image/suspor.jpg" style="width:180px; height:180px;" alt="card image"></p><br />
+                                    <h4 style="color: #f8b600 !important;" class="card-title">@SharedLocalizer["Su Sporları"]</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 style="color: #f8b600 !important;" class="card-title">@SharedLocalizer["Su Sporları"]</h4>
+                                    <p class="card-text">
+                                        @SharedLocalizer["Hotelimizin yakınlarında su sporları merkezinde dilediğiniz eğlenceye yelken açabilirsiniz.."]  
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/image/windsurf.jpg" style="width:180px; height:180px;" alt="card image"></p><br />
+                                    <h4 style="color: #f8b600 !important;" class="card-title">@SharedLocalizer["Wind Surf"]</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 style="color: #f8b600 !important;" class="card-title">@SharedLocalizer["Wind Surf"]</h4>
+                                    <p class="card-text">@SharedLocalizer["Türkiye’nin Windsurf için en uygun sahillerinden biri olan meşhur Altınkum’da, eğlencenin tadını çıkarın."]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/image/dalis.jpg" style="width:180px; height:180px;" alt="card image"></p><br />
+                                    <h4 style="color: #f8b600 !important;" class="card-title">@SharedLocalizer["Dalış"]</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 style="color: #f8b600 !important;" class="card-title">@SharedLocalizer["Dalış"]</h4>
+                                    <p class="card-text">@SharedLocalizer["Didimin eşsiz sualtı güzelliklerine tanık olun. Balıklar, deniz bitkileri ve yapay resifler sizi bekliyor."]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/image/parasut.jpg" style="width:180px; height:180px;" alt="card image"></p><br />
+                                    <h4 style="color: #f8b600 !important;" class="card-title">@SharedLocalizer["Motor Paraşütü"]</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 style="color: #f8b600 !important;" class="card-title">@SharedLocalizer["Motor Paraşütü"]</h4>
+                                    <p class="card-text">@SharedLocalizer["Didim semalarında motor paraşütü uçuşu yapabileceğiniz, tepeden bütün Ege'yi görebileceğiniz faaliyet mevcuttur."]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/image/cafe.jpg" style="width:180px; height:180px;" alt="card image"></p><br />
+                                    <h4 style="color: #f8b600 !important;" class="card-title">Cafe & Restaurant</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 style="color: #f8b600 !important;" class="card-title">Cafe & Restaurant</h4>
+                                    <p class="card-text">@SharedLocalizer["Cafe & Resataurantımızda sıcak ve soğuk  yiyecek ve içeceklerle hizmetinizdeyiz."]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="/image/spor.jpg" style="width:180px; height:180px;" alt="card image"></p><br />
+                                    <h4 style="color: #f8b600 !important;" class="card-title">@SharedLocalizer["Egzersiz"]</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 style="color: #f8b600 !important;" class="card-title">@SharedLocalizer["Egzersiz"]</h4>
+                                    <p class="card-text">@SharedLocalizer["Zirve performana ulaşmak için vücudun doğal efor sarfetme ve dinlenme ritmini kullanarak doğanın dört mevsimini yeniden yaratır."]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Team member -->
+        </div>
+    </div>
+</section>

@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Aile Odası" xml:space="preserve">
+    <value>Family Room</value>
+  </data>
+  <data name="Aktiviteler" xml:space="preserve">
+    <value>Activities</value>
+  </data>
+  <data name="Anasayfa" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Cafe &amp; Resataurantımızda sıcak ve soğuk  yiyecek ve içeceklerle hizmetinizdeyiz." xml:space="preserve">
+    <value>We are at your service with hot and cold food and drinks in our Cafe &amp; Restaurant.</value>
+  </data>
+  <data name="Dalış" xml:space="preserve">
+    <value>Dive</value>
+  </data>
+  <data name="Didim semalarında motor paraşütü uçuşu yapabileceğiniz, tepeden bütün Ege'yi görebileceğiniz faaliyet mevcuttur." xml:space="preserve">
+    <value>There are activities where you can paraglide in the skies of Didim and see the whole Aegean from the top.</value>
+  </data>
+  <data name="Didimin eşsiz sualtı güzelliklerine tanık olun. Balıklar, deniz bitkileri ve yapay resifler sizi bekliyor." xml:space="preserve">
+    <value>Witness the unique underwater beauties of Didim. Fish, marine plants and artificial reefs await you.</value>
+  </data>
+  <data name="Double Oda" xml:space="preserve">
+    <value>Double Room</value>
+  </data>
+  <data name="Egzersiz" xml:space="preserve">
+    <value>Exercise</value>
+  </data>
+  <data name="en" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Galeri" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="Hakkımızda" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="HAVA DURUMU" xml:space="preserve">
+    <value>WEATHER FORECAST </value>
+  </data>
+  <data name="Hotelimizin yakınlarında su sporları merkezinde dilediğiniz eğlenceye yelken açabilirsiniz.." xml:space="preserve">
+    <value>You can set sail for the entertainment you want at the water sports center near our hotel.</value>
+  </data>
+  <data name="Iletisim" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Merhaba" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="Motor Paraşütü" xml:space="preserve">
+    <value>Motor Parachute</value>
+  </data>
+  <data name="Odalar" xml:space="preserve">
+    <value>Rooms</value>
+  </data>
+  <data name="Rüzgar Sörfü" xml:space="preserve">
+    <value>Wind Surf</value>
+  </data>
+  <data name="Standart Oda" xml:space="preserve">
+    <value>Standart Room</value>
+  </data>
+  <data name="Su Sporları" xml:space="preserve">
+    <value>Water Sports</value>
+  </data>
+  <data name="Tesisimiz Didim’in incisi altınkumda denize sıfır konumda olup meşhur Altınkum plajına 100 mt yürüme mesafesindedir. İzmir havalimanına 1:30 saat Bodrum hava limanına 50 dk mesafededir. Didim’den günlük gezebileceğiniz alternatifler arasında apollo tapınağı, miletos antik kenti bulunmaktadır." xml:space="preserve">
+    <value>Our facility is located on the seafront in Altınkum, the pearl of Didim, and is 100 meters walking distance from the famous Altınkum beach. It is 1:30 hours from Izmir airport and 50 minutes from Bodrum airport. Among the alternatives you can visit daily from Didim are the temple of Apollo and the ancient city of Miletos.</value>
+  </data>
+  <data name="tr" xml:space="preserve">
+    <value>Turkish</value>
+  </data>
+  <data name="Triple Oda" xml:space="preserve">
+    <value>Triple Room</value>
+  </data>
+  <data name="Türkiye’nin Windsurf için en uygun sahillerinden biri olan meşhur Altınkum’da, eğlencenin tadını çıkarın." xml:space="preserve">
+    <value>Enjoy the fun in the famous Altınkum, one of Turkey's most suitable beaches for windsurfing.</value>
+  </data>
+  <data name="Yorumlar" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Zirve performana ulaşmak için vücudun doğal efor sarfetme ve dinlenme ritmini kullanarak doğanın dört mevsimini yeniden yaratır." xml:space="preserve">
+    <value>It recreates nature's four seasons by using the body's natural rhythm of exertion and rest to reach peak performance.</value>
+  </data>
+</root>

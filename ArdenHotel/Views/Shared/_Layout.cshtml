@@ -1,0 +1,259 @@
+﻿@using ArdenHotel.Areas.SysAdmin.Services;
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+@{
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+
+    bool isMainPage = returnUrl == "~/" ? true : false;
+    bool isAboutPage = returnUrl.Contains("about") ? true : false;
+    bool isGalleryPage = returnUrl.Contains("gallery") ? true : false;
+    bool isActivityPage = returnUrl.Contains("activities") ? true : false;
+    bool isContactPage = returnUrl.Contains("contact") ? true : false;
+    bool isCommentPage = returnUrl.Contains("comment") ? true : false;
+    bool isRoomPage = returnUrl.Contains("room") ? true : false;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="Arden Hotel">
+    <meta name="description" content="Arden Hotel">
+    <meta name="keywords" content="Didim Arden Hotel, Arden Hotel, Arden Hotel Didim, Arden Otel, Didim Arden Otel, Otel Arden, Didim Arden">
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <meta name="language" content="English">
+    <link rel="icon" href="image/favicon.png" type="image/png">
+    <title>Arden Hotel</title>
+
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/vendors/linericon/style.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="~/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/vendors/carousel-10/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/vendors/carousel-10/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" />
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+
+    <!-- main css -->
+    <link rel="stylesheet" href="~/css/animate.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+</head>
+@RenderSection("scripts", false)
+<body>
+    <!--================Header Area =================-->
+    <header class="header_area">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="~/"><b>ARDEN HOTEL</b></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto samNav">
+                        <li class="nav-item @(isMainPage ? "active" : "")"><a class="nav-link" href="~/">@SharedLocalizer["Anasayfa"]</a></li>
+                        <li class="nav-item @(isAboutPage ? "active" : "")"><a class="nav-link" href="~/about-us">@SharedLocalizer["Hakkımızda"]</a></li>
+                        <li class="nav-item @(isRoomPage ? "active" : "")"><a class="nav-link" href="~/rooms?catId=0">@SharedLocalizer["Odalar"]</a></li>
+                        <li class="nav-item @(isCommentPage ? "active" : "")"><a class="nav-link" href="~/comments">@SharedLocalizer["Yorumlar"]</a></li>
+                        <li class="nav-item @(isActivityPage ? "active" : "")"><a class="nav-link" href="~/activities">@SharedLocalizer["Aktiviteler"]</a></li>
+                        <li class="nav-item @(isGalleryPage ? "active" : "")"><a class="nav-link" href="~/gallery">@SharedLocalizer["Galeri"]</a></li>
+                        <li class="nav-item @(isContactPage ? "active" : "")"><a class="nav-link" href="~/contact">@SharedLocalizer["Iletisim"]</a></li>
+                        <li class="nav-item" id="partialLanguage">@await Html.PartialAsync("_SelectLanguagePartial")</li>
+                        <li class="nav-item" id="partialExchangeRate">@await Component.InvokeAsync("GetExchangeRate") </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================Header Area =================-->
+    <!--================Banner Area =================-->
+    <div class="col-md-12">
+        @RenderBody()
+    </div>
+    <!--================ Recent Area  =================-->
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6 class="footer_title">Menu</h6>
+                        <div class="row">
+                            <div class="col-4">
+                                <ul class="list_style">
+                                    <li><a href="~/">@SharedLocalizer["Anasayfa"]</a></li>
+                                    <li><a href="~/rooms?catId=0">@SharedLocalizer["Odalar"]</a></li>
+                                    <li><a href="~/comments">@SharedLocalizer["Yorumlar"]</a></li>
+                                    <li><a href="~/gallery">@SharedLocalizer["Galeri"]</a></li>
+                                    <li><a href="~/activities">@SharedLocalizer["Aktiviteler"]</a></li>
+                                    <li><a href="~/about-us">@SharedLocalizer["Hakkımızda"]</a></li>
+                                    <li><a href="~/contact">@SharedLocalizer["Iletisim"]</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6 class="footer_title">@SharedLocalizer["Hakkımızda"]</h6>
+                        <p>@SharedLocalizer["Tesisimiz Didim’in incisi altınkumda denize sıfır konumda olup meşhur Altınkum plajına 100 mt yürüme mesafesindedir. İzmir havalimanına 1:30 saat Bodrum hava limanına 50 dk mesafededir. Didim’den günlük gezebileceğiniz alternatifler arasında apollo tapınağı, miletos antik kenti bulunmaktadır."] </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border_line"></div>
+            <div class="row footer-bottom d-flex justify-content-between align-items-center">
+                <p class="col-lg-8 col-sm-12 footer-text m-0">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved <a href="#" target="_blank">Made By Hasan Hüseyin & Muratcan Döngel</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+                <div class="col-lg-4 col-sm-12 footer-social">
+                    <a href="https://www.instagram.com/ardenotel/?hl=tr"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-behance"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/vendors/carousel-10/js/popper.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/vendors/carousel-10/js/owl.carousel.min.js"></script>
+    <script src="~/vendors/carousel-10/js/main.js"></script>
+    <script src="~/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="~/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/vendors/isotope/isotope-min.js"></script>
+    <script src="~/js/stellar.js"></script>
+    <script src="~/vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+    <script>
+        $('#myCarousel').carousel({
+            interval: false
+        });
+        $('#carousel-thumbs').carousel({
+            interval: false
+        });
+
+        // handles the carousel thumbnails
+        // https://stackoverflow.com/questions/25752187/bootstrap-carousel-with-thumbnails-multiple-carousel
+        $('[id^=carousel-selector-]').click(function () {
+            var id_selector = $(this).attr('id');
+            var id = parseInt(id_selector.substr(id_selector.lastIndexOf('-') + 1));
+            $('#myCarousel').carousel(id);
+        });
+        // Only display 3 items in nav on mobile.
+        if ($(window).width() < 575) {
+            $('#carousel-thumbs .row div:nth-child(4)').each(function () {
+                var rowBoundary = $(this);
+                $('<div class="row mx-0">').insertAfter(rowBoundary.parent()).append(rowBoundary.nextAll().addBack());
+            });
+            $('#carousel-thumbs .carousel-item .row:nth-child(even)').each(function () {
+                var boundary = $(this);
+                $('<div class="carousel-item">').insertAfter(boundary.parent()).append(boundary.nextAll().addBack());
+            });
+        }
+        // Hide slide arrows if too few items.
+        if ($('#carousel-thumbs .carousel-item').length < 2) {
+            $('#carousel-thumbs [class^=carousel-control-]').remove();
+            $('.machine-carousel-container #carousel-thumbs').css('padding', '0 5px');
+        }
+        // when the carousel slides, auto update
+        $('#myCarousel').on('slide.bs.carousel', function (e) {
+            var id = parseInt($(e.relatedTarget).attr('data-slide-number'));
+            $('[id^=carousel-selector-]').removeClass('selected');
+            $('[id=carousel-selector-' + id + ']').addClass('selected');
+        });
+
+        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+
+
+        $('#myCarousel .carousel-item img').on('click', function (e) {
+            var src = $(e.target).attr('data-remote');
+            //if (src) $(this).ekkoLightbox();
+        });
+
+        $(document).ready(function () {
+            $('.items').slick({
+                dots: true,
+                infinite: true,
+                speed: 800,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+
+                ]
+            });
+
+            (function () {
+                var options = {
+                    whatsapp: "+905368731825",
+                    call_to_action: "Nasıl yardımcı olabilirim?",
+                    position: "right"
+                };
+                var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+                var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+                s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+                var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+            })();
+            setTimeout(() => {
+                var x = document.getElementsByClassName("sc-7dvmpp-1");
+                x[0].remove();
+            }, 2000)
+
+            jQuery('')
+        });
+    </script>
+</body>
+</html>

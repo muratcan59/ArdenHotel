@@ -1,0 +1,55 @@
+﻿@model ArdenHotel.Entities.Comment
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "UpdateComment";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>UpdateComment</h1>
+
+<h4>Comment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="~/SysAdmin/AdminComment/UpdateComment" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CommentID" name="CommentID" class="form-control" />
+            <input type="hidden" asp-for="CreatedDateUtc" name="CreatedDateUtc" class="form-control" />
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" name="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Mail</label>
+                <input asp-for="Email" readonly name="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Adı</label>
+                <input asp-for="Name" readonly name="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commentary" class="control-label">Yorum</label>
+                <input asp-for="Commentary" readonly name="Commentary" class="form-control" />
+                <span asp-validation-for="Commentary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rate" class="control-label">Puan</label>
+                <input asp-for="Rate" readonly name="Rate" class="form-control" />
+                <span asp-validation-for="Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsMainPageShow" name="IsMainPageShow" /> @Html.DisplayNameFor(model => model.IsMainPageShow)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

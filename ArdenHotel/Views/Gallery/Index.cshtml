@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ArdenHotel.Entities.Media>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--================Breadcrumb Area =================-->
+<section class="breadcrumb_area">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+        <div class="page-cover text-center">
+            <h2 class="page-cover-tittle">Gallery</h2>
+            <ol class="breadcrumb">
+                <li><a href="~/">Home</a></li>
+                <li class="active">Gallery</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!--================Breadcrumb Area =================-->
+<!--================Breadcrumb Area =================-->
+<section class="gallery_area section_gap">
+    <div class="container">
+        <div class="section_title text-center">
+            <h2 class="title_color">Arden Hotel Gallery</h2>
+        </div>
+        <div class="row imageGallery1" id="gallery">
+            @foreach (var item in Model)
+            {
+                var urls = !string.IsNullOrEmpty(item.Url) ? item.Url.Split(",") : new string[0];
+                @foreach (var url in urls)
+                {
+                    <div class="col-md-4 gallery_item">
+                        <div class="gallery_img">
+                            <img width="360" style="height:auto" src="~/Files/@("new" + url)" alt="">
+                            <div class="hover">
+                                <a class="light" href="~/Files/@url"><i class="fa fa-expand"></i></a>
+                            </div>                        
+                        </div>
+                    </div>
+                }
+            }
+            </div>
+    </div>
+
+</section>
+<!--================Breadcrumb Area =================-->

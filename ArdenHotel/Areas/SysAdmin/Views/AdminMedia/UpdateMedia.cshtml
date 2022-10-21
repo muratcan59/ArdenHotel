@@ -1,0 +1,39 @@
+﻿@model ArdenHotel.Entities.Media
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "UpdateMedia";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>UpdateMedia</h1>
+
+<h4>Media</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="~/SysAdmin/AdminMedia/UpdateMedia" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input hidden asp-for="MediaID" name="MediaID" class="form-control" />
+            <input asp-for="RoomId" hidden name="RoomId" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Url" class="control-label">Url</label>
+                <input asp-for="Url" name="Url" readonly class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Resim</label>
+                <input type="file" multiple name="files" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Başlık</label>
+                <input asp-for="Title" name="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
